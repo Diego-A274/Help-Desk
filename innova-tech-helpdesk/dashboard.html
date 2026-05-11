@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesa de Ayuda - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <h2><i class="fa-solid fa-headset"></i> InnovaTech</h2>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+                <li><a href="gestion-tickets.html"><i class="fa-solid fa-ticket"></i> Todos los Tickets</a></li>
+                <li><a href="mis-tickets.html"><i class="fa-solid fa-user-tag"></i> Mis Asignaciones</a></li>
+                <li><a href="registrar-incidencia.html"><i class="fa-solid fa-plus"></i> Nuevo Ticket</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Buscar incidencias similares (Evitar duplicados)...">
+            </div>
+            <div class="user-profile">
+                <span><i class="fa-solid fa-bell"></i></span>
+                <div class="avatar">Agente A</div>
+            </div>
+        </header>
+
+        <section class="kpi-cards">
+            <div class="card warning">
+                <h3>Tickets Abiertos</h3>
+                <p class="number">24</p>
+            </div>
+            <div class="card danger">
+                <h3>SLA Críticos (Vencen hoy)</h3>
+                <p class="number">3</p>
+            </div>
+            <div class="card success">
+                <h3>Resueltos (Semana)</h3>
+                <p class="number">89</p>
+            </div>
+        </section>
+
+        <section class="reports-mockup">
+            <div class="report-box">
+                <h3>Tendencia de Incidencias (Simulado)</h3>
+                <div class="mock-chart">
+                    <div class="bar" style="height: 40%;"><span>Lun</span></div>
+                    <div class="bar" style="height: 70%;"><span>Mar</span></div>
+                    <div class="bar" style="height: 50%;"><span>Mié</span></div>
+                    <div class="bar" style="height: 90%;"><span>Jue</span></div>
+                    <div class="bar" style="height: 30%;"><span>Vie</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ticket-workspace">
+            <h3>Tickets Recientes</h3>
+            <table class="ticket-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Asunto</th>
+                        <th>Prioridad</th>
+                        <th>SLA Restante</th>
+                        <th>Estado (Clic para cambiar)</th>
+                    </tr>
+                </thead>
+                <tbody id="ticketTableBody">
+                    <tr>
+                        <td>#TK-001</td>
+                        <td>Falla conexión WiFi piso 3</td>
+                        <td><span class="badge priority-high">Alta</span></td>
+                        <td class="sla-danger">2h</td>
+                        <td><span class="badge status-nuevo" onclick="cambiarEstado(this)">Nuevo</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TK-002</td>
+                        <td>Licencia de Office expirada</td>
+                        <td><span class="badge priority-medium">Media</span></td>
+                        <td class="sla-warning">12h</td>
+                        <td><span class="badge status-progreso" onclick="cambiarEstado(this)">En Progreso</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TK-003</td>
+                        <td>Pantalla azul en equipo contabilidad</td>
+                        <td><span class="badge priority-high">Alta</span></td>
+                        <td class="sla-danger">1h</td>
+                        <td><span class="badge status-nuevo" onclick="cambiarEstado(this)">Nuevo</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TK-004</td>
+                        <td>Teclado no responde</td>
+                        <td><span class="badge priority-low">Baja</span></td>
+                        <td class="sla-ok">-</td>
+                        <td><span class="badge status-resuelto" onclick="cambiarEstado(this)">Resuelto</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
