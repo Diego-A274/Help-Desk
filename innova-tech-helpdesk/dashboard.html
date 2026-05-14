@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <aside class="sidebar">
         <div class="logo">
@@ -22,6 +24,48 @@
             </ul>
         </nav>
     </aside>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Actualizar estado del ticket</h3>
+                <button class="btn-close" onclick="cerrarModal()">&#x2715;</button>
+            </div>
+            <div class="modal-body">
+                <div class="ticket-info" id="modalTicketInfo"></div>
+                <p class="estado-label">Selecciona el nuevo estado</p>
+                <div class="estado-opciones">
+                    <div class="estado-opcion" data-estado="Nuevo" data-clase="status-nuevo"
+                        onclick="seleccionarEstado(this)">
+                        <i class="fa-solid fa-circle-dot"></i>
+                        <div>
+                            <div class="op-label">Nuevo</div>
+                            <div class="op-desc">Ticket recién registrado, sin asignar</div>
+                        </div>
+                    </div>
+                    <div class="estado-opcion" data-estado="En Progreso" data-clase="status-progreso"
+                        onclick="seleccionarEstado(this)">
+                        <i class="fa-solid fa-spinner"></i>
+                        <div>
+                            <div class="op-label">En Progreso</div>
+                            <div class="op-desc">Agente trabajando en la resolución</div>
+                        </div>
+                    </div>
+                    <div class="estado-opcion" data-estado="Resuelto" data-clase="status-resuelto"
+                        onclick="seleccionarEstado(this)">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <div class="op-label">Resuelto</div>
+                            <div class="op-desc">Incidencia cerrada satisfactoriamente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-guardar" onclick="guardarEstado()">Guardar cambio</button>
+            </div>
+        </div>
+    </div>
 
     <main class="main-content">
         <header class="top-header">
@@ -72,8 +116,9 @@
                         <th>Asunto</th>
                         <th>Prioridad</th>
                         <th>SLA Restante</th>
-                        <th>Estado (Clic para cambiar)</th>
+                        <th>Estado</th>
                         <th>Usuario</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="ticketTableBody">
@@ -84,6 +129,12 @@
                         <td class="sla-danger">2h</td>
                         <td><span class="badge status-nuevo" onclick="cambiarEstado(this)">Nuevo</span></td>
                         <td>Carlos Rodríguez</td>
+                        <td>
+                            <button class="btn-action"
+                                onclick="abrirModal(this,'#TK-001','Falla conexión WiFi piso 3')">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>#TK-002</td>
@@ -92,6 +143,12 @@
                         <td class="sla-warning">12h</td>
                         <td><span class="badge status-progreso" onclick="cambiarEstado(this)">En Progreso</span></td>
                         <td>María Gómez</td>
+                        <td>
+                            <button class="btn-action"
+                                onclick="abrirModal(this,'#TK-001','Falla conexión WiFi piso 3')">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>#TK-003</td>
@@ -99,7 +156,14 @@
                         <td><span class="badge priority-high">Alta</span></td>
                         <td class="sla-danger">1h</td>
                         <td><span class="badge status-nuevo" onclick="cambiarEstado(this)">Nuevo</span></td>
+
                         <td>Jorge Martínez</td>
+                        <td>
+                            <button class="btn-action"
+                                onclick="abrirModal(this,'#TK-001','Falla conexión WiFi piso 3')">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>#TK-004</td>
@@ -107,7 +171,14 @@
                         <td><span class="badge priority-low">Baja</span></td>
                         <td class="sla-ok">-</td>
                         <td><span class="badge status-resuelto" onclick="cambiarEstado(this)">Resuelto</span></td>
+
                         <td>Ana López</td>
+                        <td>
+                            <button class="btn-action"
+                                onclick="abrirModal(this,'#TK-001','Falla conexión WiFi piso 3')">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -116,4 +187,5 @@
 
     <script src="js/dashboard.js"></script>
 </body>
+
 </html>
