@@ -353,3 +353,77 @@
 .btn-guardar:hover {
     background: #2563eb;
 }
+
+/* ===== MODAL DETALLE TICKET ===== */
+#detalleTicketContent {
+    padding: 0 28px;
+}
+
+.detalle-row {
+    display: flex;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.detalle-label {
+    width: 110px;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.85rem;
+}
+
+.detalle-value {
+    flex: 1;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.detalle-value .badge {
+    display: inline-block;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    padding: 20px 28px 28px 28px;
+    justify-content: flex-end;
+    border-top: 1px solid #edf2f7;
+    margin-top: 10px;
+}
+
+.btn-cerrar-detalle {
+    background: #e2e8f0;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-cerrar-detalle:hover {
+    background: #cbd5e1;
+}
+
+.btn-editar-estado {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-editar-estado:hover {
+    background: #2563eb;
+}
+
+.estado-selector {
+    padding: 8px 12px;
+    border-radius: 40px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    font-weight: 500;
+}
