@@ -60,9 +60,9 @@
 }
 
 .stat-box {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
+    background: #fefce8;
+    padding: 18px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -134,7 +134,7 @@
 }
 
 .btn-filtrar {
-    background: #3b82f6;
+    background: #8b5cf6;
     color: white;
     border: none;
     padding: 10px 20px;
